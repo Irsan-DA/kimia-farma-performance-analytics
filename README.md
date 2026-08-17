@@ -72,10 +72,8 @@ The Looker Studio dashboard includes:
 └── Presentation
 ```
 
-## Author and Link BigQuery
+## Author
 
 **Irsan Maulana Yusuf**
-
-**Google Bigquery:** [Link Here](https://console.cloud.google.com/bigquery?ws=!1m4!1m3!3m2!1skimia-harma-analytics-1!2skimia_farma)
 
 Big Data Analyst Intern - Rakamin Academy x Kimia Farma
