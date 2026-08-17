@@ -66,9 +66,6 @@ The Looker Studio dashboard includes:
 ├── Code/
 │ └── Create_Tabel_Analyst.sql
 │ └── Kimia_Farma_Analyst_EDA.ipynb
-├── Data/
-│ └── Raw_Data
-│ └── Final_Data
 └── Presentation
 ```
 
