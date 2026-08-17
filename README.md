@@ -1,6 +1,6 @@
-# Kimia Farma Business Performance Analytics (2020–2023)
+# Kimia Farma Business Performance Analytics (2020 - 2023)
 
-**Big Data Analyst — Project-Based Internship**
+**Big Data Analyst - Project-Based Internship**
 Rakamin Academy x Kimia Farma
 
 ## Overview
@@ -34,46 +34,9 @@ Row counts for every imported table were validated against the original CSV file
 ## Analysis Table — `tabel_analisa`
 
 A single analytical table was built by joining three of the four tables (`kf_inventory` was excluded — none of its columns are part of the required schema):
-
-```sql
-CREATE OR REPLACE TABLE `kimia_farma.tabel_analisa` AS
-SELECT
-  t.transaction_id,
-  PARSE_DATE('%m/%d/%Y', t.date) AS date,
-  b.branch_id,
-  b.branch_name,
-  b.kota,
-  b.provinsi,
-  b.rating AS rating_cabang,
-  t.customer_name,
-  p.product_id,
-  p.product_name,
-  t.price AS actual_price,
-  t.discount_percentage,
-  CASE
-    WHEN t.price <= 50000 THEN 0.10
-    WHEN t.price <= 100000 THEN 0.15
-    WHEN t.price <= 300000 THEN 0.20
-    WHEN t.price <= 500000 THEN 0.25
-    ELSE 0.30
-  END AS persentase_gross_laba,
-  t.price * (1 - t.discount_percentage) AS nett_sales,
-  (t.price * (1 - t.discount_percentage)) *
-    CASE
-      WHEN t.price <= 50000 THEN 0.10
-      WHEN t.price <= 100000 THEN 0.15
-      WHEN t.price <= 300000 THEN 0.20
-      WHEN t.price <= 500000 THEN 0.25
-      ELSE 0.30
-    END AS nett_profit,
-  t.rating AS rating_transaksi
-FROM `kimia_farma.kf_final_transaction` t
-INNER JOIN `kimia_farma.kf_kantor_cabang` b
-  ON t.branch_id = b.branch_id
-INNER JOIN `kimia_farma.kf_product` p
-  ON t.product_id = p.product_id
 ```
-
+for full query code can check on code file
+```
 Resulting row count: **672,458** — identical to the source transaction table, confirming the joins introduced no row loss or duplication.
 
 ## Key Insights
@@ -95,6 +58,20 @@ The Looker Studio dashboard includes:
 - Indonesia geo map of total profit by province
 - Branch category and product category breakdown
 
-**Dashboard link:** `[Link Here](https://datastudio.google.com/reporting/f32d1baa-26df-4d35-b2d4-f87c490c78ce)`
+**Dashboard link:** [Link Here](https://datastudio.google.com/reporting/f32d1baa-26df-4d35-b2d4-f87c490c78ce)
 
 ## Repository Structure
+```
+├── README.md
+├── sql/
+│ └── create_tabel_analisa.sql
+├── notebook/
+│ └── eda_kimia_farma.ipynb
+└── assets/
+└── dashboard_screenshot.png
+```
+
+## Author
+
+**Irsan Maulana Yusuf**
+Big Data Analyst Intern - Rakamin Academy x Kimia Farma
