@@ -63,12 +63,13 @@ The Looker Studio dashboard includes:
 ## Repository Structure
 ```
 ├── README.md
-├── sql/
-│ └── create_tabel_analisa.sql
-├── notebook/
-│ └── eda_kimia_farma.ipynb
-└── assets/
-└── dashboard_screenshot.png
+├── Code/
+│ └── Create_Tabel_Analyst.sql
+│ └── Kimia_Farma_Analyst_EDA.ipynb
+├── Data/
+│ └── Raw_Data
+│ └── Final_Data
+└── Presentation
 ```
 
 ## Author
